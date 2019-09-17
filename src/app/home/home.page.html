@@ -1,16 +1,14 @@
 <ion-content class="ion-padding">
-  <div class="header-start">
     <h3>Forca de Vendas</h3>
     <ion-img src="assets/sales.png" alt="logo"></ion-img>
-  </div>
   <form>
     <ion-item>
       <ion-label position="stacked">Email</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="creds.email" name="email" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Senha</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
     </ion-item>
     <ion-button expand="block" (click)="login()">Entrar</ion-button>
   </form>
