@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-<p>Pagina de categorias</p>
+  <ion-list>
+      <ion-item button="true" *ngFor="let item of items">
+        <ion-thumbnail><ion-img src="/assets/cat{{item.id}}.png"></ion-img></ion-thumbnail>
+        <ion-label padding>{{item.name}}</ion-label>
+      </ion-item>
+  </ion-list>
 </ion-content>
