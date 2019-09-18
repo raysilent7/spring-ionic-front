@@ -28,8 +28,16 @@ export class HomePage {
     this.menu.enable(true);
   }
 
+  ionViewDidEnter() {
+    this.auth.refreshToken().subscribe(
+        response => {
+          this.auth.successfulLogin(response.headers.get('Authorization'));
+          this.navCtrl.navigateForward('/categorias');
+        },
+        error => {});
+  }
+
   login() {
-    console.log(this.creds);
     this.auth.authenticate(this.creds).subscribe(
         response => {
           this.auth.successfulLogin(response.headers.get('Authorization'));
