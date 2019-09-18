@@ -13,6 +13,7 @@ import {CategoriaService} from '../services/domain/categoria.service';
 import {AuthService} from '../services/auth.service';
 import {StorageService} from '../services/storage.service';
 import {ClienteService} from '../services/domain/cliente.service';
+import {AuthInterceptorProvider} from '../interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import {ClienteService} from '../services/domain/cliente.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     CategoriaService,
+    AuthInterceptorProvider,
     AuthService,
     StorageService,
     ClienteService
