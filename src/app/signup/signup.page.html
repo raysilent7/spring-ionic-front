@@ -10,10 +10,12 @@
       <ion-label position="stacked">Nome*</ion-label>
       <ion-input formControlName="name" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.name.dirty && formGroup.controls.name.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Email*</ion-label>
       <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Valor inválido</p>
     <ion-list>
       <ion-radio-group formControlName="type">
         <ion-list-header>
@@ -34,34 +36,42 @@
       <ion-label position="stacked">CPF ou CNPJ</ion-label>
       <ion-input formControlName="cpfOrCnpj" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.cpfOrCnpj.dirty && formGroup.controls.cpfOrCnpj.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Senha*</ion-label>
       <ion-input formControlName="password" type="password"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.password.dirty && formGroup.controls.password.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Logradouro*</ion-label>
       <ion-input formControlName="location" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.location.dirty && formGroup.controls.location.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Número*</ion-label>
       <ion-input formControlName="number" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.number.dirty && formGroup.controls.number.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Complemento</ion-label>
       <ion-input formControlName="complement" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.complement.dirty && formGroup.controls.complement.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Bairro</ion-label>
       <ion-input formControlName="neighbr" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.neighbr.dirty && formGroup.controls.neighbr.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">CEP*</ion-label>
       <ion-input formControlName="cep" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.cep.dirty && formGroup.controls.cep.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Telefone 1*</ion-label>
       <ion-input formControlName="phone1" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.phone1.dirty && formGroup.controls.phone1.errors" margin-left>Valor inválido</p>
     <ion-item>
       <ion-label position="stacked">Telefone 2</ion-label>
       <ion-input formControlName="phone2" type="text"></ion-input>
@@ -82,6 +92,6 @@
         <ion-select-option *ngFor="let city of cities" [value]="city.id">{{city.name}}</ion-select-option>
       </ion-select>
     </ion-item>
-    <ion-button expand="block" type="submit">Criar conta</ion-button>
+    <ion-button expand="block" type="submit" [disabled]="formGroup.invalid">Criar conta</ion-button>
   </form>
 </ion-content>
