@@ -22,12 +22,16 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.menu.enable(false);
-      this.auth.refreshToken().subscribe(
-          response => {
-              this.auth.successfulLogin(response.headers.get('Authorization'));
-              this.navCtrl.navigateForward('/categorias');
-          },
-          error => {});
+    if (this.creds.email != null && this.creds.email !== '') {
+        console.log(this.creds)
+        this.auth.refreshToken().subscribe(
+            response => {
+                this.auth.successfulLogin(response.headers.get('Authorization'));
+                this.navCtrl.navigateForward('/categorias');
+            },
+            error => {
+            });
+    }
   }
 
   ionViewDidLeave() {
