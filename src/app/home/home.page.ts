@@ -22,19 +22,16 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.menu.enable(false);
+      this.auth.refreshToken().subscribe(
+          response => {
+              this.auth.successfulLogin(response.headers.get('Authorization'));
+              this.navCtrl.navigateForward('/categorias');
+          },
+          error => {});
   }
 
   ionViewDidLeave() {
     this.menu.enable(true);
-  }
-
-  ionViewDidEnter() {
-    this.auth.refreshToken().subscribe(
-        response => {
-          this.auth.successfulLogin(response.headers.get('Authorization'));
-          this.navCtrl.navigateForward('/categorias');
-        },
-        error => {});
   }
 
   login() {

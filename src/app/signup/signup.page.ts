@@ -43,12 +43,10 @@ export class SignupPage implements OnInit {
     });
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.estadoService.findAll()
         .subscribe(response => {
           this.states = response;
-          this.formGroup.controls.stateId.setValue(this.states[0].id);
-          this.updateCidades();
         },
         error => {});
   }
@@ -58,7 +56,7 @@ export class SignupPage implements OnInit {
     this.cidadeService.findAll(stateId)
         .subscribe(response => {
           this.cities = response;
-          this.formGroup.controls.cityId.setValue(null);
+          this.formGroup.controls.cityId.setValue(1);
         },
         error => {});
   }
