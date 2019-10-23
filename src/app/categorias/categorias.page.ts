@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoriaService} from '../../services/domain/categoria.service';
 import {CategoriaDTO} from '../../models/categoria.DTO';
+import {API_CONFIG} from "../../config/api.config";
 
 @Component({
   selector: 'app-categorias',
@@ -8,6 +9,8 @@ import {CategoriaDTO} from '../../models/categoria.DTO';
   styleUrls: ['categorias.page.scss'],
 })
 export class CategoriasPage implements OnInit {
+
+  bucketUrl: string = API_CONFIG.bucketBaseUrl;
 
   items: CategoriaDTO[];
 

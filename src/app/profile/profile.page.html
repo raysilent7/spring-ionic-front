@@ -3,12 +3,12 @@
     <ion-menu-button slot="start">
       <ion-icon name="menu"></ion-icon>
     </ion-menu-button>
-    <ion-title>Profile</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <img src="/assets/profile.png" alt="Avatar">
+  <img [src]="cliente?.imageUrl || 'assets/avatar-blank.png'" alt="Avatar">
   <ion-title>{{cliente?.name}}</ion-title>
   <p>{{cliente?.email}}</p>
 </ion-content>
