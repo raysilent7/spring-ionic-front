@@ -5,7 +5,7 @@ import {EstadoService} from '../../services/domain/estado.service';
 import {EstadoDTO} from '../../models/estado.DTO';
 import {CidadeDTO} from '../../models/cidade.DTO';
 import {ClienteService} from '../../services/domain/cliente.service';
-import {AlertController, NavController} from '@ionic/angular';
+import {AlertController, MenuController, NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -19,6 +19,7 @@ export class SignupPage implements OnInit {
   cities: CidadeDTO[];
 
   constructor(public formBuilder: FormBuilder,
+              public menu: MenuController,
               public cidadeService: CidadeService,
               public estadoService: EstadoService,
               public clienteService: ClienteService,
@@ -43,12 +44,17 @@ export class SignupPage implements OnInit {
     });
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
+    this.menu.enable(false);
     this.estadoService.findAll()
         .subscribe(response => {
           this.states = response;
         },
         error => {});
+  }
+
+  ionViewWillLeave() {
+    this.menu.enable(true);
   }
 
   updateCidades() {
@@ -84,6 +90,10 @@ export class SignupPage implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  backToHome() {
+    this.navCtrl.navigateForward('/home');
   }
 
   ngOnInit() {

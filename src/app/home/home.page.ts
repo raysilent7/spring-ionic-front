@@ -34,7 +34,7 @@ export class HomePage {
     }
   }
 
-  ionViewDidLeave() {
+  ionViewWillLeave() {
     this.menu.enable(true);
   }
 
