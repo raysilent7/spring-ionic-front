@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProdutoDTO} from "../../models/produto.DTO";
+import {NavController, NavParams} from "@ionic/angular";
 
 @Component({
   selector: 'app-produtos',
@@ -7,7 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutosPage implements OnInit {
 
-  constructor() { }
+  items : ProdutoDTO[];
+
+  constructor() {
+  }
+
+  ionViewDidEnter() {
+    this.items = [
+      {
+        id: "1",
+        nome: 'Mouse',
+        preco: 80.99
+      },
+      {
+        id: "2",
+        nome: 'Teclado',
+        preco: 100.00
+      }
+    ]
+  };
 
   ngOnInit() {
   }

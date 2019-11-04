@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CategoriaService} from '../../services/domain/categoria.service';
 import {CategoriaDTO} from '../../models/categoria.DTO';
 import {API_CONFIG} from "../../config/api.config";
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-categorias',
@@ -14,7 +15,8 @@ export class CategoriasPage implements OnInit {
 
   items: CategoriaDTO[];
 
-  constructor(public categoriaService: CategoriaService) {}
+  constructor(public categoriaService: CategoriaService,
+              public navCtrl: NavController) {}
 
   ionViewDidEnter() {
     this.categoriaService.findAll().subscribe(response => {
@@ -23,6 +25,10 @@ export class CategoriasPage implements OnInit {
     error => {
       console.log(error);
     });
+  }
+
+  showProdutos () {
+    this.navCtrl.navigateForward('/produtos')
   }
 
   ngOnInit(): void {}
