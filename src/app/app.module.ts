@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
 
-import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {IonicModule, IonicRouteStrategy, NavParams} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 
@@ -15,6 +15,7 @@ import {StorageService} from '../services/storage.service';
 import {ClienteService} from '../services/domain/cliente.service';
 import {AuthInterceptorProvider} from '../interceptors/auth-interceptor';
 import {ErrorInterceptorProvider} from '../interceptors/error-interceptor';
+import {ProdutoService} from "../services/domain/produto.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,8 @@ import {ErrorInterceptorProvider} from '../interceptors/error-interceptor';
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
-    ClienteService
+    ClienteService,
+    ProdutoService
   ],
   bootstrap: [AppComponent]
 })
